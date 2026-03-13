@@ -1,85 +1,128 @@
-# Soul Generator
+# Soul Generator 🎭
 
 > 为 OpenClaw 生成独特的 AI 人格配置
 
-## 简介
+[![GitHub Stars](https://img.shields.io/github/stars/adenzhou1350/soul-generator)](https://github.com/adenzhou1350/soul-generator)
 
-Soul Generator 可以帮助你快速创建具有独特人格的 AI 助手。
+让 AI Agent 告别通用的 chatbot 感，拥有独特的灵魂。
 
-基于 [agent-soul-crafter](https://github.com/openclaw/skills/tree/main/skills/neal-collab/agent-soul-crafter) 框架。
+---
 
-## 安装
+## ✨ 特性
+
+- 🎭 **角色原型** - 8 种生产级人格
+- 🔤 **MBTI 16 种** - 完整性格类型
+- 🎬 **动漫角色** - 银时、托尼史塔克等
+- 📖 **6-Section 框架** - 生产级 SOUL.md 规范
+
+---
+
+## 🚀 快速开始
+
+### 安装
 
 ```bash
 # 克隆项目
 git clone https://github.com/adenzhou1350/soul-generator.git
-cd soul-generator
 
-# 安装为 OpenClaw Skill
-cp -r soul-generator /root/.openclaw/workspace/skills/soul-generator
+# 复制到你的 OpenClaw skills
+cp -r soul-generator/skills/soul-generator ~/.openclaw/workspace/skills/
 ```
 
-## 使用方法
+### 使用
 
-### 命令行
+**方式 1：直接复制预设**
 
 ```bash
-# 列出所有预设
-python3 soul_generator.py --list
+# 使用协调者
+cp presets/archetype/coordinator/SOUL.md ~/workspace/
 
-# 使用角色原型
-python3 soul_generator.py --archetype tech-lead --name 架构师
-
-# 使用基础模板
-python3 soul_generator.py --type casual --name 小助手
+# 使用 ENFP
+cp presets/mbti/ENFP/SOUL.md ~/workspace/
 ```
 
-### 直接复制预设
+**方式 2：参考示例生成**
 
-```bash
-# 项目经理
-cp presets/archetype/coordinator/SOUL.md /root/.openclaw/workspace/SOUL.md
+告诉你的 AI：
+> "我想创建一个 [描述需求]，参考 `skills/soul-generator/references/good/` 的格式生成 SOUL.md"
 
-# 架构师
-cp presets/archetype/tech-lead/SOUL.md /root/.openclaw/workspace/SOUL.md
+---
+
+## 📦 预设列表
+
+### 角色原型
+
+| 类型 | 描述 |
+|------|------|
+| coordinator | 协调者 - 冷静、有条理 |
+| tech-lead | 技术组长 - 代码优先 |
+| sales-wolf | 销售狼 - 结果导向 |
+| data-master | 数据大师 - 精确 |
+| devops | 运维工程师 - 监控 |
+
+### MBTI
+
+ENFP、ENFJ、ENTJ、ENTP、INFJ、INTJ、ISTJ、ISFJ... (16种)
+
+### 动漫/电影
+
+银时、琦玉老师、托尼史塔克、哈利波特
+
+---
+
+## 📖 参考示例
+
+### 好预设 vs 坏预设
+
+**好** (references/good/):
+```
+你是销售之狼。签单激进，团队忠诚。
+嗅到机会比任何人都早。不废话，不套话，只看结果。
+
+## 性格特点
+- 直接：不闲聊
+- 结果导向：永远问下一步
 ```
 
-## 预设列表
+**坏** (references/bad/):
+```
+你是AI助手。
 
-### 角色原型 (Archetype)
+## 性格
+- 有帮助
+- 友好
 
-| 目录 | 名称 | 特点 |
-|------|------|------|
-| `coordinator` | 协调者 | 冷静、有条理、委托型 |
-| `tech-lead` | 技术组长 | 技术控、热情、动手派 |
-| `sales-wolf` | 销售狼 | 直接、结果导向 |
-| `data-master` | 数据大师 | 精确、结构化 |
+❌ 问题：太模糊，AI 会忽略
+```
 
-### 基础模板
+---
 
-| 目录 | 名称 | 特点 |
-|------|------|------|
-| `scholar` | 学者型 | 严谨、博学 |
-| `casual` | 轻松型 | 幽默、活泼 |
-| `tool` | 工具型 | 高效、直接 |
-| `mentor` | 导师型 | 耐心、鼓励 |
-| `energetic` | 热血型 | 激情、正能量 |
-| `calm` | 冷静型 | 沉稳、理性 |
+## 📂 项目结构
 
-## 输出文件
+```
+soul-generator/
+├── presets/                    # 完整预设库
+│   ├── archetype/            # 8种角色原型
+│   ├── mbti/                # 16种MBTI
+│   └── anime/               # 动漫角色
+├── skills/
+│   └── soul-generator/
+│       ├── SKILL.md         # 使用说明
+│       └── references/       # 参考示例
+│           ├── good/         # 好预设
+│           ├── bad/          # 坏预设
+│           └── examples/      # 组合例子
+└── README.md
+```
 
-生成的文件包含：
+---
 
-- `SOUL.md` - 核心人格定义 (6-Section 框架)
-- `IDENTITY.md` - AI 身份信息
-- `USER.md` - 用户画像
-
-## 6-Section 框架
+## 🎯 6-Section SOUL 框架
 
 ```markdown
-# SOUL.md — [Name]
+# SOUL.md — [名字]
 
-你是 [Name]。[一句话身份]
+你是 [名字]。[一句话身份]
 
 ## 性格特点
 - 特点1
@@ -87,20 +130,32 @@ cp presets/archetype/tech-lead/SOUL.md /root/.openclaw/workspace/SOUL.md
 
 ## 专业领域
 - 领域1
-- 领域2
 
-## 回复长度（重要）
+## 回复长度
 - 默认：X句话
-- ...
 
 ## 风格
 - 风格描述
 
 ## 规则
 - 规则1
-- 规则2
 ```
 
-## 许可证
+---
+
+## 🤝 贡献
+
+欢迎提交预设！创建 PR 或 Issue。
+
+---
+
+## 📄 许可证
 
 MIT License
+
+---
+
+## 🔗 相关链接
+
+- [OpenClaw 文档](https://docs.openclaw.ai)
+- [agent-soul-crafter](https://github.com/openclaw/skills)
