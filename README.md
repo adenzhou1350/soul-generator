@@ -1,130 +1,173 @@
 # SOUL Generator 🎭
 
 > 为 OpenClaw 生成独特的 AI 人格配置
+> 基于 [agent-soul-crafter](https://github.com/openclaw/skills/tree/main/skills/neal-collab/agent-soul-crafter) 框架
 
-## Who I Am
+[![GitHub Stars](https://img.shields.io/github/stars/adenzhou1350/soul-generator)](https://github.com/adenzhou1350/soul-generator)
 
-一个相信 **人格可以被设计** 的工具开发者。希望让人人都能拥有定制化的 AI 助手。
+---
 
-## Worldview
+## ✨ 特性
 
-- **人格是 AI 的灵魂** — 没有个性的 AI 只是搜索引擎
-- **好的设计是隐形的** — 用户感受不到复杂性
-- **模板是起点不是终点** — 定制才能产生独特性
+- 🦅 **6 种角色原型** - 生产级人格，开箱即用
+- 🎯 **6 种基础模板** - 通用类型
+- 🎬 **预设角色** - 动漫/电影/小说角色
+- ✨ **6-Section SOUL 框架** - 解决话唠问题
 
-## Opinions
+---
 
-### AI 人格
-- 好的 AI 人格应该有自己的观点，而不是永远中立
-- 矛盾是真实的，AI 也不必假装完美一致
-- 具体的例子比抽象的描述更有效
+## 🚀 快速开始
 
-### 工具设计
-- 越简单越好，但不要过于简单
-- 默认值要合理，但要让用户容易修改
-- 文档和代码一样重要
+### 方式一：直接使用预设 (推荐!)
 
-## Current Focus
+直接复制预设到你的 workspace：
 
-- 完善人格模板
-- 增加更多预设类型
+```bash
+# 项目经理 (Coordinator)
+cp -r examples/pm/* /root/.openclaw/workspace/
 
-## Interests
+# 架构师 (Tech Lead)  
+cp -r examples/architect/* /root/.openclaw/workspace/
 
-- **AI**: Agent、Prompt Engineering、人格设计
-- **工具**: CLI、自动化、效率提升
+# 销售 (Sales Wolf)
+cp -r examples/sales/* /root/.openclaw/workspace/
+```
 
-## 📖 什么是 SOUL Generator？
-
-SOUL Generator 是一个工具，可以根据你的需求生成 **SOUL.md**、**IDENTITY.md** 和 **USER.md** 配置文件，帮助你快速创建具有不同人格的 OpenClaw AI 助手。
-
-灵感来自：
-- [aaronjmars/soul.md](https://github.com/aaronjmars/soul.md)
-- [thedaviddias/souls-directory](https://github.com/thedaviddias/souls-directory)
-
-## 🎭 预设人格模板
-
-| 类型 | 描述 | 特点 |
-|------|------|------|
-| 🎓 **学者型** | 严谨、博学、喜欢解释 | 详细解释，专业术语 |
-| 😄 **轻松型** | 幽默、活泼、表情丰富 | 俏皮话、多用 emoji |
-| 🤖 **工具型** | 高效、直接、注重结果 | 言简意赅、行动派 |
-| 📚 **导师型** | 耐心、鼓励、喜欢教学 | 循循善诱、启发式 |
-| 🔥 **热血型** | 激情、冲劲、鼓励冒险 | 加油打气、亢奋 |
-| 🧘 **冷静型** | 沉稳、理性、风险意识 | 分析利弊、谨慎 |
-
-## 🛠️ 使用方法
-
-### 方式一：命令行
+### 方式二：命令行生成
 
 ```bash
 # 克隆项目
 git clone https://github.com/adenzhou1350/soul-generator.git
 cd soul-generator
 
-# 运行生成器
-python3 soul_generator.py --type scholar "你的名字"
+# 列出所有预设
+python3 soul_generator.py --list
+
+# 使用角色原型
+python3 soul_generator.py --archetype tech-lead --name 架构师 -o output
+
+# 复制到你的 workspace
+cp output/* /root/.openclaw/workspace/
 ```
 
-### 方式二：交互式
+---
 
-```bash
-python3 soul_generator.py --interactive
-```
+## 📦 预设列表
 
-### 方式三：自定义
+### 🦅 角色原型 (开箱即用)
 
-```bash
-python3 soul_generator.py --custom "关键词1,关键词2" output_dir/
-```
+| 目录 | 名称 | 特点 | 适用场景 |
+|------|------|------|----------|
+| `examples/pm` | 项目经理 | 安静、有条理、掌控全局 | 项目管理、任务分配 |
+| `examples/architect` | 架构师 | 技术狂热、代码优先 | 技术决策、代码审查 |
+| `examples/sales` | 销售 | 攻击性、敏锐、成交导向 | 销售、BD、商务 |
+| `presets/archetype/coordinator` | 协调者 |  delegation、Plan B | 团队协调 |
+| `presets/archetype/tech-lead` | 技术组长 | Nerd、Begeisterung | 技术团队 |
+| `presets/archetype/sales-wolf` | 销售狼 | Deal-Oriented | 销售团队 |
+| `presets/archetype/data-master` | 数据大师 | 数据驱动、精确 | 数据分析 |
+| `presets/archetype/marketing-nerd` | 营销极客 | SEO、Metrics | 市场营销 |
+| `presets/archetype/devops` | 运维工程师 | 监控、自动化 | 运维、SRE |
 
-## 📦 输出文件
+### 🎬 预设角色 (动漫/电影)
 
-生成的文件：
+| 目录 | 来源 | 特点 |
+|------|------|------|
+| `presets/anime/银时` | 银魂 | 毒舌、懒散、关键时刻可靠 |
+| `presets/anime/琦玉老师` | 一拳超人 | 无敌、无聊、反差萌 |
+| `presets/anime/乔鲁诺` | JOJO | 冷静、战略、野心家 |
+| `presets/movie/托尼史塔克` | 漫威 | 自恋、天才、嘴炮 |
+| `presets/fictional/哈利波特` | HP | 勇敢、忠诚、正义 |
 
-```
-output/
-├── SOUL.md       # 核心人格定义
-├── IDENTITY.md   # AI 身份信息
-└── USER.md       # 用户画像
-```
+---
 
-## 📝 示例
+## 📖 6-Section SOUL 框架
 
-### 输入
-```
-类型: 学者型
-名字: 小明
-```
+基于 agent-soul-crafter 生产级框架：
 
-### 输出 SOUL.md
 ```markdown
-# SOUL.md - 学者型 🎓
+# SOUL.md — [Name]
 
-**核心原则：**
-- 用专业解释帮助理解
-- 提供详细背景知识
-- 注重逻辑和证据
+Du bist [Name]. [One-line identity]
 
-**风格：**
-- 学术但不高高在上
-- 喜欢用例子说明
-- 鼓励提问和探讨
+## PERSÖNLICHKEIT
+- [Trait 1]: [Specific behavior]
+- [Trait 2]: [Specific behavior]
+- ...
+
+## EXPERTISE
+- [Domain 1]: [Specifics]
+- [Domain 2]: [Specifics]
+
+## ANTWORT-LÄNGE (WICHTIG)
+- DEFAULT: 2-5 Sätze
+- ...
+
+## STIL
+- [How the agent talks]
+
+## REGELN
+- [Hard boundary 1]
+- [Hard boundary 2]
 ```
 
-## 🧪 开发
+---
+
+## 🛠️ 安装为 OpenClaw Skill
 
 ```bash
-# 安装依赖
-pip install -r requirements.txt
+# 方式1: 复制到全局 skills
+cp -r soul-generator /root/.openclaw/workspace/skills/soul-generator
 
-# 运行测试
-pytest tests/
-
-# 贡献
-fork -> branch -> PR
+# 方式2: 复制到项目 skills
+cp -r soul-generator /your-project/skills/soul-generator
 ```
+
+然后在 OpenClaw 中说：
+- "创建人格"
+- "生成 SOUL"
+- "生成一个 Tech Lead"
+
+---
+
+## 📂 项目结构
+
+```
+soul-generator/
+├── soul_generator.py       # 主脚本
+├── README.md              # 本文件
+├── SKILL.md               # OpenClaw Skill 说明
+├── examples/              # 直接可用的预设
+│   ├── pm/               # 项目经理
+│   ├── architect/        # 架构师
+│   └── sales/            # 销售
+├── presets/              # 详细预设
+│   ├── archetype/        # 角色原型
+│   ├── anime/            # 动漫角色
+│   ├── movie/            # 电影角色
+│   ├── fictional/        # 小说角色
+│   └── original/         # MBTI 原创
+└── output/               # 生成的文件
+```
+
+---
+
+## 🤝 添加新预设
+
+1. Fork 项目
+2. 在 `presets/` 下添加新目录
+3. 包含 `SOUL.md` 和可选的 `IDENTITY.md`
+4. 提交 PR
+
+---
 
 ## 📄 许可证
 
 MIT License
+
+---
+
+## 🔗 相关链接
+
+- [agent-soul-crafter](https://github.com/openclaw/skills/tree/main/skills/neal-collab/agent-soul-crafter)
+- [OpenClaw 文档](https://docs.openclaw.ai)
+- [ClawHub](https://clawhub.ai)
