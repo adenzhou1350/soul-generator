@@ -22,7 +22,7 @@
 
 <br>
 
-[![Star History](https://api.star-history.com/svg?repos=adenzhou1350/soul-generator&type=Date)](https://star-history.com/#adenzhou1350/soul-generator&Date)
+
 
 </div>
 
@@ -208,6 +208,10 @@ coordinator · tech-lead · sales-wolf
 1. 在对应目录下创建目录
 2. 添加 `SOUL.md`
 3. 提交 PR
+
+---
+
+[![Star History](https://api.star-history.com/svg?repos=adenzhou1350/soul-generator&type=Date)](https://star-history.com/#adenzhou1350/soul-generator&Date)
 
 ---
 
