@@ -64,7 +64,7 @@ description: |
 ```
 用户输入人名
     ↓
-Phase 1: 并行信息采集（6路搜索）
+Phase 1: 并行信息采集（4路搜索）
     ↓
 Phase 2: 框架提炼（心智模型 + 表达DNA）
     ↓
@@ -133,7 +133,7 @@ Phase 3: 构建 SOUL.md
 | ZZZZ | 装死者 | SOLO | 孤儿 |
 | GOGO | 行者 | JOKER | 小丑 |
 
-**MBTI（16型）**：ENFP · ENFJ · ENTJ · ENTP · INFJ · INTJ · ISTJ · ISFJ · ESFJ · ESFP · ESTJ · ESTP · INFP · ISFP · ISTP
+**MBTI（16型）**：ENFP · ENFJ · ENTJ · ENTP · INFJ · INTJ · INTP · ISTJ · ISFJ · ESFJ · ESFP · ESTJ · ESTP · INFP · ISFP · ISTP
 
 **角色原型**：coordinator · tech-lead · sales-wolf
 
@@ -246,5 +246,6 @@ presets/
 
 ```bash
 git clone https://github.com/adenzhou1350/soul-generator.git
+mkdir -p ~/.openclaw/workspace/skills
 cp -r soul-generator/skills/soul-generator ~/.openclaw/workspace/skills/
 ```
